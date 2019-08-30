@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Bncustom1!",
+    "password": "",
     "database": "crm_db",
     "host": "localhost",
     "dialect": "mysql"
