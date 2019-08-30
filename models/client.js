@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var Client = sequelize.define("clients", {
     clientName: {
       type: DataTypes.STRING,
@@ -15,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       validate: {
         len: [1]
-      },
+      }
     },
     clientEmail: {
       type: DataTypes.STRING
