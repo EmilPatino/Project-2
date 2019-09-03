@@ -1,33 +1,140 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
+<header class="main-header">
+  <a href="index.handlebars" class="logo">
+    <!-- Logo -->
+    <span class="logo-mini">
+      <img src="#" alt="#">
+    </span>
+    <span class="logo-lg">
+      <img src="#" alt="#">
+    </span>
+  </a>
+  <!-- Header Navbar -->
+  <nav class="navbar navbar-static-top">
+    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <!-- Sidebar toggle button -->
+      <span class="sr-only">Toggle navigation</span>
+      <span class="pe-7s-angle-left-circle">
+      </span>
+    </a>
+    <a href="#search"><span class="pe-7s-search"></span></a>
+    <div id="search">
+      <button type="button" class="close">&times;</button>
+      <form>
+        <input type="search" value placeholder="Search..">
+        <button type="submit" class="btn btn-add">Search...</button>
+      </form>
+    </div>
+    <div class="navbar-custom-menu">
+      <ul class="nav navbar-nav">
+        <li class="dropdown dropdown-user">
+          <!-- User -->
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <img src="../img/avatar1.jpg" class="rounded-circle" width="45" height="45" alt="user" ></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#">
+                <i class="fa fa-user"></i> User Profile</a>
+            </li>
+            <li><a href="#"><i class="fa fa-inbox"></i> Inbox</a></li>
+            <li><a href="#">
+                <i class="fa fa-sign-out"></i> Signout</a>
+            </li>
+          </ul>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- Left side column. contains sidebar -->
+<aside class="main-sidebar">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <ul class="sidebar-menu">
+      <li class="active">
+        <a href="index.handlebars">
+          <i class="fa fa-tachometer">
+          </i>
+          <span>Dashboard</span>
+          <span class="pull-right-container"></span>
+        </a>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-users" aria-hidden="true">
+          </i>
+          <span>Customers</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right">
+            </i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="add-customer.html">Add Customer</a></li>
         </ul>
+      </li>
+    </ul>
+  </div>
+</aside>
+
+<!-- Main content -->
+<div class="content-wrapper">
+  <!-- Content heading -->
+  <section class="content-header">
+    <div class="header-icon">
+      <i class="fa fa-dashboard"></i>
+    </div>
+    <div class="header-title">
+      <h1>Lead Link Dashboard</h1>
+    </div>
+  </section>
+  <!-- Main content -->
+  <section class="content">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="panel panel-bd lobidisable">
+          <div class="panel-heading">
+            <div class="panel-title">
+              <h4>Contract Deadlines</h4>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="Workslist">
+              <div class="worklistdate">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Company</th>
+                      <th>Point of Contact</th>
+                      <th>End Deadlines</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="info">
+                      <th scope="row">X Corp</th>
+                      <td>John Doe</td>
+                      <td>Dec. 31st</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+        <div class="panel panel-bd lobidisable">
+          <div class="panel-heading">
+            <div class="panel-title">
+              <h4>This Year Earnings & Expenses(Bar chart)</h4>
+            </div>
+          </div>
+          <div class="panel-body">
+            <canvas id="barChart" height="150"></canvas>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </div>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
