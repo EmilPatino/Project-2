@@ -3,19 +3,19 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Client.findAll({}).then(function(dbClient) {
+    db.Clients.findAll({}).then(function(dbClients) {
       res.render("index", {
         msg: "Welcome!",
-        client: dbClient
+        client: dbClients
       });
     });
   });
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
-    db.Client.findOne({ where: { id: req.params.id } }).then(function() {
+    db.Clients.findOne({ where: { id: req.params.id } }).then(function(dbClients) {
       res.render("example", {
-        client: dbClient
+        client: dbClients
       });
     });
   });

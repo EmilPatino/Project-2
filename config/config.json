@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "process.env.password",
+    "password": "Tyson4189$",
     "database": "crm_db",
     "host": "localhost",
     "dialect": "mysql"
