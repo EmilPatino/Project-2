@@ -11,8 +11,19 @@ module.exports = function(app) {
     });
   });
 
+  // attempting to load add client handlebars
+  app.get("/addclient", function(req, res) {
+    db.Clients.findAll({}).then(function(dbClients) {
+      res.render("addClient", {
+        msg: "Add a client",
+        client: dbClients
+      });
+    });
+  });
+
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
+    // eslint-disable-next-line prettier/prettier
     db.Clients.findOne({ where: { id: req.params.id } }).then(function(dbClients) {
       res.render("example", {
         client: dbClients
