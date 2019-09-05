@@ -1,26 +1,16 @@
-.list-group-item {
-  line-height: 2.5;
-}
-
-ul, .sidebar-menu {
-  list-style-type: none;
-}
-
-.sidebar-menu {
-    margin: 3%;
-    padding: 0;
-}
-
 .main-header {
-  margin-left: 160px; /* Same as the width of the sidebar */
-  padding: 0px 10px;
-  background-color: black;
+  margin-left: 200px; /* Same as the width of the sidebar */
+  border: 1px solid black
 }
 
-.navbar a {
-  text-decoration: none;
-  color: white;
-  display: block;
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+.navbar-nav .nav-link {
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .sidebar {
@@ -30,7 +20,7 @@ ul, .sidebar-menu {
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #111; /* Black */
+  background-color: rgba(25, 27, 29, 0.904); /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
@@ -38,7 +28,16 @@ ul, .sidebar-menu {
 .sidebar a {
   text-decoration: none;
   color: white;
-  display: block;
+  display: inline;
+}
+
+ul, .sidebar-menu {
+  list-style-type: none;
+}
+
+.sidebar-menu {
+    margin: 3%;
+    padding: 0;
 }
 
 .content-wrapper {

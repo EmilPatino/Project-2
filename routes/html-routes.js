@@ -11,8 +11,8 @@ module.exports = function(app) {
     });
   });
 
-  // attempting to load add client handlebars
-  app.get("/addclient", function(req, res) {
+  // Load add client form
+  app.get("/addClient", function(req, res) {
     db.Clients.findAll({}).then(function(dbClients) {
       res.render("addClient", {
         msg: "Add a client",
