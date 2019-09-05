@@ -1,82 +1,167 @@
 <header class="main-header">
-  <a href="index.handlebars" class="logo">
-    <!-- Logo -->
-    <span class="logo-mini">
-      <img src="#" alt="#">
-    </span>
-    <span class="logo-lg">
-      <img src="#" alt="#">
-    </span>
-  </a>
   <!-- Header Navbar -->
   <nav class="navbar navbar-static-top">
-    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-      <!-- Sidebar toggle button -->
-      <span class="sr-only">Toggle navigation</span>
-      <span class="pe-7s-angle-left-circle">
-      </span>
-    </a>
-    <a href="#search"><span class="pe-7s-search"></span></a>
-    <div id="search">
-      <button type="button" class="close">&times;</button>
-      <form>
-        <input type="search" value placeholder="Search..">
-        <button type="submit" class="btn btn-add">Search...</button>
-      </form>
-    </div>
-    <div class="navbar-custom-menu">
-      <ul class="nav navbar-nav">
-        <li class="dropdown dropdown-user">
-          <!-- User -->
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img src="../img/avatar1.jpg" class="rounded-circle" width="45" height="45" alt="user" ></a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="#">
-                <i class="fa fa-user"></i> User Profile</a>
-            </li>
-            <li><a href="#"><i class="fa fa-inbox"></i> Inbox</a></li>
-            <li><a href="#">
-                <i class="fa fa-sign-out"></i> Signout</a>
-            </li>
-          </ul>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</header>
+    <div class="br-header-left">
+      <div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a>
+      </div>
+      <div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i
+            class="icon ion-navicon-round"></i></a></div>
+      <div class="input-group hidden-xs-down wd-170 transition">
+        <input id="searchbox" type="text" class="form-control" placeholder="Search">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
+        </span>
+      </div><!-- input-group -->
+    </div><!-- br-header-left -->
 
-<!-- Left side column. contains sidebar -->
+    <div class="br-header-right">
+      <nav class="nav">
+        <div class="dropdown">
+          <a href="" class="nav-link pd-x-7 pos-relative" data-toggle="dropdown">
+            <i class="icon fa fa-envelope"></i>
+            <!-- start: if statement -->
+            <span class="square-8 bg-danger pos-absolute t-15 r-0 rounded-circle"></span>
+            <!-- end: if statement -->
+          </a>
+          <div class="dropdown-menu dropdown-menu-header wd-300 pd-0-force">
+            <div class="d-flex align-items-center justify-content-between pd-y-10 pd-x-20 bd-b bd-gray-200">
+              <label class="tx-12 tx-info tx-uppercase tx-semibold tx-spacing-2 mg-b-0">Messages</label>
+              <a href="" class="tx-11">+ Add New Message</a>
+            </div><!-- d-flex -->
+
+            <div class="media-list">
+              <a href="" class="media-list-link read">
+                <div class="media pd-x-20 pd-y-15">
+                  <img src="#" class="wd-40 rounded-circle" alt="">
+                  <div class="media-body">
+                    <div class="d-flex align-items-center justify-content-between mg-b-5">
+                      <p class="mg-b-0 tx-medium tx-gray-800 tx-14">Robert Walker</p>
+                      <span class="tx-11 tx-gray-500">5 hours ago</span>
+                    </div><!-- d-flex -->
+                    <p class="tx-12 mg-b-0">I should be incapable of drawing a single stroke at the present moment...
+                    </p>
+                  </div>
+                </div><!-- media -->
+              </a>
+              <div class="pd-y-10 tx-center bd-t">
+                <a href="" class="tx-12"><i class="fa fa-angle-down mg-r-5"></i> Show All Messages</a>
+              </div>
+            </div><!-- media-list -->
+          </div><!-- dropdown-menu -->
+        </div><!-- dropdown -->
+
+        <div class="dropdown">
+          <a href="" class="nav-link pd-x-7 pos-relative" data-toggle="dropdown">
+            <i class="icon fa fa-bell"></i>
+            <!-- start: if statement -->
+            <span class="square-8 bg-danger pos-absolute t-15 r-5 rounded-circle"></span>
+            <!-- end: if statement -->
+          </a>
+          <div class="dropdown-menu dropdown-menu-header wd-300 pd-0-force">
+            <div class="d-flex align-items-center justify-content-between pd-y-10 pd-x-20 bd-b bd-gray-200">
+              <label class="tx-12 tx-info tx-uppercase tx-semibold tx-spacing-2 mg-b-0">Notifications</label>
+              <a href="" class="tx-11">Mark All as Read</a>
+            </div><!-- d-flex -->
+
+            <div class="media-list">
+              <!-- loop starts here -->
+              <a href="" class="media-list-link read">
+                <div class="media pd-x-20 pd-y-15">
+                  <img src="../img/img5.jpg" class="wd-40 rounded-circle" alt="">
+                  <div class="media-body">
+                    <p class="tx-13 mg-b-0 tx-gray-700"><strong class="tx-medium tx-gray-800">Julius Erving</strong>
+                      wants to connect with you on your conversation with <strong class="tx-medium tx-gray-800">Ronnie
+                        Mara</strong></p>
+                    <span class="tx-12">September 01, 2019 6:08pm</span>
+                  </div>
+                </div><!-- media -->
+              </a>
+              <div class="pd-y-10 tx-center bd-t">
+                <a href="" class="tx-12"><i class="fa fa-angle-down mg-r-5"></i> Show All Notifications</a>
+              </div>
+            </div><!-- media-list -->
+          </div><!-- dropdown-menu -->
+        </div><!-- dropdown -->
+
+        <div class="dropdown">
+          <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
+            <span class="logged-name hidden-md-down">Professor</span>
+            <img src="../public/img/avatar1.jpg" class="wd-32 rounded-circle" alt="">
+            <span class="square-10 bg-success"></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-header wd-200">
+            <ul class="list-unstyled user-profile-nav">
+              <li><a href=""><i class="icon fa fa-user"></i> Edit Profile</a></li>
+              <li><a href=""><i class="icon fa fa-cog"></i> Settings</a></li>
+              <li><a href=""><i class="icon fa fa-download"></i> Downloads</a></li>
+              <li><a href=""><i class="icon fa fa-star"></i> Favorites</a></li>
+              <li><a href=""><i class="icon fa fa-power-off"></i> Sign Out</a></li>
+            </ul>
+          </div><!-- dropdown-menu -->
+        </div><!-- dropdown -->
+      </nav>
+      <div class="navicon-right">
+        <a id="btnRightMenu" href="" class="pos-relative">
+          <i class="icon fa fa-comments"></i>
+          <!-- start: if statement -->
+          <span class="square-8 bg-danger pos-absolute t-10 r--5 rounded-circle"></span>
+          <!-- end: if statement -->
+        </a>
+      </div><!-- navicon-right -->
+    </div><!-- br-header-right -->
+  </nav>
+</header><!-- br-header -->
+
+<!-- Begin Sidebar -->
 <aside class="main-sidebar">
   <!-- Sidebar -->
   <div class="sidebar">
-    <ul class="sidebar-menu">
-      <li class="active">
-        <a href="index.handlebars">
-          <i class="fa fa-tachometer">
-          </i>
-          <span>Dashboard</span>
-          <span class="pull-right-container"></span>
-        </a>
-      </li>
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-users" aria-hidden="true">
-          </i>
-          <span>Customers</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right">
-            </i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="/addclient">Add Customer</a></li>
+    <div class="br-logo"><a href=""><span>Lead Link</span></a></div>
+    <div class="br-sideleft overflow-y-auto">
+      <label class="sidebar-label pd-x-15 mg-t-20">Navigation</label>
+      <div class="br-sideleft-menu">
+        <a href="#" class="br-menu-link active">
+          <!-- file link -->
+          <div class="br-menu-item">
+            <i class="menu-item-icon fa fa-home"></i>
+            <span class="menu-item-label"> Dashboard</span>
+          </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="#" class="br-menu-link">
+          <!-- file link -->
+          <div class="br-menu-item">
+            <i class="menu-item-icon fa fa-envelope"></i>
+            <span class="menu-item-label"> Mailbox</span>
+          </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="#" class="br-menu-link">
+          <!-- file link -->
+          <div class="br-menu-item">
+            <i class="menu-item-icon fa fa-image"></i>
+            <span class="menu-item-label"> Cards &amp; Widgets</span>
+          </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="#" class="br-menu-link">
+          <!-- file link -->
+          <div class="br-menu-item">
+            <i class="menu-item-icon fa fa-users"></i>
+            <span class="menu-item-label"> UI Elements</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <ul class="br-menu-sub nav flex-column">
+          <li class="nav-item"><a href="/addClient" class="nav-link"><i class="menu-item-icon fa fa-plus"></i> Add Client</a>
+          </li>
+          <li class="nav-item"><a href="#" class="nav-link"><i class="menu-item-icon fa fa-list"></i> Client List</a>
+          </li>
+          <li class="nav-item"><a href="#" class="nav-link"><i class="menu-item-icon fa fa-list-alt"></i> Client
+              Groups</a></li>
         </ul>
-      </li>
-    </ul>
-  </div>
+      </div>
+    </div>
+  </div><!-- br-sideleft-menu -->
 </aside>
+<!-- End Sidebar -->
 
 <!-- Main content -->
 <div class="content-wrapper">
@@ -96,7 +181,7 @@
         <div class="panel panel-bd lobidisable">
           <div class="panel-heading">
             <div class="panel-title">
-              <h4>Contract Deadlines</h4>
+              <h4>Latest Clients</h4>
             </div>
           </div>
           <div class="panel-body">
@@ -105,16 +190,16 @@
                 <table class="table table-hover">
                   <thead>
                     <tr>
+                      <th>ID</th>
+                      <th>Name</th>
                       <th>Company</th>
-                      <th>Point of Contact</th>
-                      <th>End Deadlines</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr class="info">
-                      <th scope="row">X Corp</th>
+                      <th scope="row">1</th>
                       <td>John Doe</td>
-                      <td>Dec. 31st</td>
+                      <td>X Corp</td>
                     </tr>
                   </tbody>
                 </table>
