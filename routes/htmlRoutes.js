@@ -11,6 +11,15 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/index.html", function(req, res) {
+    db.Clients.findAll({}).then(function(dbClients) {
+      res.render("index", {
+        msg: "Welcome!",
+        client: dbClients
+      });
+    });
+  });
+
   // attempting to load add client handlebars
   app.get("/addclient", function(req, res) {
     db.Clients.findAll({}).then(function(dbClients) {
