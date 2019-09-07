@@ -21,8 +21,9 @@ module.exports = function(app) {
     db.Post.findAll({
       include: [db.Clients],
       where: query
-    }).then(function(dbPost) {
-      res.json(dbPost);
+    }).then(function(data) {
+      var hbsObject = { clients: data };
+      res.render("index", hbsObject);
       console.log(JSON.stringify(db))
     });
   });
