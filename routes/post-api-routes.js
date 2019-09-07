@@ -40,6 +40,7 @@ module.exports = function(app) {
   //   });
   // });
 
+
   // POST route for saving a new post
   app.post("/newclient", function(req, res) {
     db.Post.create(req.body).then(function(dbPost) {
@@ -47,16 +48,6 @@ module.exports = function(app) {
     });
   });
 
-  // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function(req, res) {
-    db.Post.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
 
   // PUT route for updating posts
   app.put("/api/posts", function(req, res) {
