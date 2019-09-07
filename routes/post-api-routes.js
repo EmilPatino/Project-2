@@ -13,12 +13,11 @@ var db = require("../models");
 module.exports = function(app) {
 
   // GET route for getting all of the posts
-  app.get("/api/posts", function(req, res) {
+  app.get("/newclient", function(req, res) {
     var query = {};
     if (req.query.clients_id) {
       query.ClientsId = req.query.clients_id;
     }
-    // 1. Add a join here to include all of the Authors to these posts
     db.Post.findAll({
       include: [db.Clients],
       where: query
@@ -30,7 +29,6 @@ module.exports = function(app) {
 
   // Get route for retrieving a single post
   app.get("/api/posts/:id", function(req, res) {
-    // 2. Add a join here to include the Author who wrote the Post
     db.Post.findOne({
       where: {
         id: req.params.id
@@ -43,7 +41,7 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new post
-  app.post("/api/posts", function(req, res) {
+  app.post("/newclient", function(req, res) {
     db.Post.create(req.body).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -72,11 +70,12 @@ module.exports = function(app) {
       res.json(dbPost);
     });
   });
+
+  app.get("/api/charts/", function(req, res) {
+    db.Post.findAll({})
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
+  });
 };
 
-app.get("/api/charts/", function(req, res) {
-  db.Post.findAll({})
-    .then(function(dbPost) {
-      res.json(dbPost);
-    });
-});

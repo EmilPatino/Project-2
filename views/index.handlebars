@@ -148,19 +148,12 @@
       </div><!-- d-flex -->
       <table class="table table-valign-middle mg-b-0">
         <tbody>
-          <tr>
-            <td class="pd-l-0-force">
-              <img src="#" class="wd-40 rounded-circle" alt="">
-            </td>
-            <td>
-              <h6 class="tx-inverse tx-14 mg-b-0">Deborah Miner</h6>
-              <span class="tx-12">@deborah.miner</span>
-            </td>
-            <td>Nov 01, 2017</td>
-            <td><span id="sparkline1">1,4,4,7,5,9,4,7,5,9,1</span></td>
-            <td class="pd-r-0-force tx-center"><a href="" class="tx-gray-600"><i
-                  class="icon ion-more tx-18 lh-0"></i></a></td>
-          </tr>
+          <td>
+            <h6 class="tx-inverse tx-14 mg-b-0">{{this.companyName}}</h6>
+            <span class="tx-12">{{this.companyEmail}}</span>
+          </td>
+          <td>Nov 01, 2017</td>
+          <td><span id="sparkline1">1,4,4,7,5,9,4,7,5,9,1</span></td>
         </tbody>
       </table>
     </div><!-- card -->
@@ -173,66 +166,126 @@
                 <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">Client Analysis</h6>
               </div>
             </div><!-- d-flex -->
-          </div>
-          <div class="d-flex align-items-center justify-content-between">
-          <div class="panel-body" id="piechart">
-          </div>
-          <div class="panel-body" id="geographic">
-          </div>
-          </div>
-        </div><!-- card -->
+          </div>          
+            <div class="row">
+              <div class="col-md-1 col-lg-1"></div>
+              <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                <div style="text-align: center; font-weight: bold;"><span>Client Value Breakdown</span>
+                  <br>
+                  <br>
+                  <div id="piechart"></div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                <div style="text-align: center; font-weight: bold;"><span>Client Locations</span>
+                  <div id="geographic"></div>
+                  <br><br>
+                </div>
+              </div>
+              <div class="col-md-1 col-lg-1"></div>
+              <div class="col-md-1 col-lg-1"></div>
+              <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                <div style="text-align: center; font-weight: bold; width: 100%;"><span>Company Performance</span>
+                  <br><br>
+                  <div id="revenue"></div>
+                  <br><br>
+                </div>
+                <div class="col-md-6 col-lg-6"></div>
+              </div>
+            </div>          
+        </div>
       </div>
-    </div>
+    </div><!-- card -->
+  </div>
+</div>
 
-    <script>
-      window.onload = function load() {
-        google.charts.load("current", { 'packages': ["corechart"] });
-        google.charts.setOnLoadCallback(technicalGraph);
-        google.charts.load('current', {
-          'packages': ['geochart'],
-          'mapsApiKey': 'AIzaSyCPqDlu8o1Yb9Wam7D-6H4ow7TbR-t1VXc'
-        });
-        google.charts.setOnLoadCallback(drawRegionsMap);
-        function drawRegionsMap() {
-          var options = { region: 'US', resolution: 'provinces' };
-          var data = google.visualization.arrayToDataTable([
-            ['State', 'Number of Clients'],
-            ['US-AZ', 2],
-            ['US-FL', 3],
-            ['US-WA', 4],
-            ['US-CA', 5],
-            ['US-NY', 6],
-            ['US-VA', 7]
-          ]);
-          var chart = new google.visualization.GeoChart(document.getElementById('geographic'));
-          chart.draw(data, options);
-        }
-        function technicalGraph() {
-          var data = new google.visualization.DataTable();
-          var value = "clientValue";
-          $.ajax({
-            url: "/api/charts",
-            dataType: "JSON",
-            Type: "GET"
-          }).done(function (data) {
-            console.log(data);
-            var clientValue = [["Client", value]];
-            $.each(data, function () {
-              var valueItem = [this.companyName, parseFloat(this[value])];
-              console.log(clientValue);
-              console.log(valueItem);
-              clientValue.push(valueItem);
-            });
-            var clientData = google.visualization.arrayToDataTable(clientValue);
-            console.log(clientData);
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-            console.log(chart);
-            var options = {
-              title: 'Client Value',
-              pieHole: 0.4,
-            };
-            chart.draw(clientData, options);
-          });
-        }
+<script>
+  window.onload = function load() {
+    google.charts.load("current", { 'packages': ["corechart"] });
+    google.charts.load('current', { 'packages': ['bar'] });
+    google.charts.setOnLoadCallback(clientGraph);
+    google.charts.setOnLoadCallback(revenueChart);
+    google.charts.load('current', {
+      'packages': ['geochart'],
+      'mapsApiKey': 'AIzaSyCPqDlu8o1Yb9Wam7D-6H4ow7TbR-t1VXc'
+    });
+    google.charts.setOnLoadCallback(drawRegionsMap);
+    function drawRegionsMap() {
+      var options = { region: 'US', resolution: 'provinces' };
+      var data = google.visualization.arrayToDataTable([
+        ['State', 'Number of Clients'],
+        ['US-AZ', 3],
+        ['US-CA', 3],
+        ['US-CO', 2],
+        ['US-DE', 1],
+        ['US-DC', 1],
+        ['US-FL', 1],
+        ['US-IL', 2],
+        ['US-MA', 4],
+        ['US-MI', 1],
+        ['US-NH', 1],
+        ['US-NJ', 3],
+        ['US-NY', 4],
+        ['US-NC', 2],
+        ['US-OH', 2],
+        ['US-OR', 2],
+        ['US-PA', 3],
+        ['US-TX', 5],
+        ['US-VA', 1],
+        ['US-WA', 2],
+      ]);
+      var chart = new google.visualization.GeoChart(document.getElementById('geographic'));
+      chart.draw(data, options);
+    }
+    function clientGraph() {
+      var data = google.visualization.arrayToDataTable([
+        ['Client', 'Value $'],
+        ['Neptune Networks', 368947],
+        ['Fluke Security', 965319],
+        ['Revelationetworks', 138642],
+        ['Fortunetworks', 287318],
+        ['Lionessmedia', 643797],
+        ['IronSoft', 462760],
+        ['Apachewheels', 512684],
+        ['Wolftronics', 619417],
+        ['Spritechnologies', 118466],
+        ['Hammer Productions', 748754],
+        ['Voyage Arts', 397125],
+      ]);
+      var options = {
+        pieStartAngle: 25,
+        width: '100%',
+        height: '100%',
+        chartArea: {
+          left: "0%",
+          top: "5%",
+          bottom: "0%",
+          height: "95%",
+          width: "100%"
+        },
+        pieHole: 0.5,
+        legend: 'labeled',
+        pieHole: 0.3,
+        tooltip: { trigger: 'none' },
+        pieSliceText: 'none',
       };
-    </script>
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(data, options);
+    }
+    function revenueChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Year', 'Sales', 'Expenses', 'Profit'],
+        ['2014', 1000, 400, 200],
+        ['2015', 1170, 460, 250],
+        ['2016', 660, 1120, 300],
+        ['2017', 1450, 600, 600],
+        ['2018', 1500, 850, 550]
+      ]);
+      var options = {
+        legend: { position: 'top', maxLines: 3 },
+      };
+      var chart = new google.charts.Bar(document.getElementById('revenue'));
+      chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
+  }
+</script>
