@@ -28,18 +28,7 @@ module.exports = function(app) {
     });
   });
 
-  // Get route for retrieving a single post
-  app.get("/api/posts/:id", function(req, res) {
-    db.Post.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: [db.Clients]
-    }).then(function(dbPost) {
-      console.log(dbPost);
-      res.json(dbPost);
-    });
-  });
+
 
   // POST route for saving a new post
   app.post("/newclient", function(req, res) {
@@ -48,16 +37,6 @@ module.exports = function(app) {
     });
   });
 
-  // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function(req, res) {
-    db.Post.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
 
   // PUT route for updating posts
   app.put("/api/posts", function(req, res) {

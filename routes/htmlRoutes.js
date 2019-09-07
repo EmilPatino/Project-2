@@ -11,6 +11,14 @@ module.exports = function(app) {
     });
   });
 
+  // app.get("/dashboard", function(req, res) {
+  //   db.Clients.findAll({}).then(function(dbClients) {
+  //     res.render("index", {
+  //       msg: "Welcome!",
+  //       client: dbClients
+  //     });
+  //   });
+  // });
 
   // attempting to load add client handlebars
   app.get("/addclient", function(req, res) {
@@ -22,6 +30,15 @@ module.exports = function(app) {
     });
   });
 
+  // Load example page and pass in an example by id
+  app.get("/example/:id", function(req, res) {
+    // eslint-disable-next-line prettier/prettier
+    db.Clients.findOne({ where: { id: req.params.id } }).then(function(dbClients) {
+      res.render("example", {
+        client: dbClients
+      });
+    });
+  });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
