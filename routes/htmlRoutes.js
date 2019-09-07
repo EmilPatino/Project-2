@@ -11,7 +11,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/index.html", function(req, res) {
+  app.get("/dashboard", function(req, res) {
     db.Clients.findAll({}).then(function(dbClients) {
       res.render("index", {
         msg: "Welcome!",
