@@ -13,21 +13,32 @@ var db = require("../models");
 module.exports = function(app) {
 
   // GET route for getting all of the posts
-  app.get("/newclient", function(req, res) {
-    var query = {};
-    if (req.query.clients_id) {
-      query.ClientsId = req.query.clients_id;
-    }
-    db.Post.findAll({
-      include: [db.Clients],
-      where: query
-    }).then(function(data) {
-      var hbsObject = { clients: data };
-      res.render("index", hbsObject);
-      console.log(JSON.stringify(db))
-    });
-  });
+  // app.get("/newclient", function(req, res) {
+  //   var query = {};
+  //   if (req.query.clients_id) {
+  //     query.ClientsId = req.query.clients_id;
+  //   }
+  //   db.Post.findAll({
+  //     include: [db.Clients],
+  //     where: query
+  //   }).then(function(dbPost) {
+  //     res.json(dbPost);
+  //     console.log(JSON.stringify(db))
+  //   });
+  // });
 
+  // Get route for retrieving a single post
+  // app.get("/api/posts/:id", function(req, res) {
+  //   db.Post.findOne({
+  //     where: {
+  //       id: req.params.id
+  //     },
+  //     include: [db.Clients]
+  //   }).then(function(dbPost) {
+  //     console.log(dbPost);
+  //     res.json(dbPost);
+  //   });
+  // });
 
 
   // POST route for saving a new post
@@ -51,11 +62,11 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/charts/", function(req, res) {
-    db.Post.findAll({})
-      .then(function(dbPost) {
-        res.json(dbPost);
-      });
-  });
+//   app.get("/api/charts/", function(req, res) {
+//     db.Post.findAll({})
+//       .then(function(dbPost) {
+//         res.json(dbPost);
+//       });
+//   });
 };
 
