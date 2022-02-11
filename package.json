@@ -13,7 +13,7 @@
   "dependencies": {
     "dotenv": "^6.2.0",
     "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
+    "express-handlebars": "^5.3.1",
     "json": "^9.0.6",
     "method": "^2.0.0",
     "method-override": "^3.0.0",
